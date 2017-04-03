@@ -2,8 +2,8 @@
 
 define('BASE_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/LIVIAN/');             #raiz del proyecto
 define('DEFAULT_APP_FOLDER', 'app');                                            #carpeta donde se alojan los modulos de la aplicacion
-define('DEFAULT_MODULE', 'sistema');                                            #modulo por defecto, actua como NAMESPACE
-define('DEFAULT_CONTROLLER', 'index');                                          #controlador por defecto
+define('DEFAULT_MODULE', 'system');                                             #modulo por defecto, actua como NAMESPACE
+define('DEFAULT_CONTROLLER', 'init');                                           #controlador por defecto
 define('DEFAULT_METHOD', 'index');                                              #metodo por defecto
 
 define('APP_KEY', 'cnxtpFXNKHrdxCClokAZEW');                                       #llave para AES

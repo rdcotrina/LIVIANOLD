@@ -36,7 +36,7 @@ class Singleton {
     /* Evita que el objeto se pueda clonar */
 
     public function __clone() {
-        throw new Exception('La clonación de este objeto no está permitida', E_USER_ERROR);
+        throw new Exception('La clonación de este objeto no está permitida.', E_USER_ERROR);
     }
 
 }
