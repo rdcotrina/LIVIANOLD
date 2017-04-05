@@ -1,2 +1,313 @@
 </body>
+
+<!--MOCHAUI-->
+<script type="text/javascript" src="<?php echo BASE_URL; ?>vendor/main/Core/core.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>vendor/main/Core/create.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>vendor/main/Core/require.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>vendor/main/Core/canvas.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>vendor/main/Core/content.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>vendor/main/Core/persist.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>vendor/main/Core/themes.js"></script>
+
+<script type="text/javascript" src="<?php echo BASE_URL; ?>vendor/main/Controls/accordion/accordion.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>vendor/main/Controls/checkboxgrid/checkboxgrid.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>vendor/main/Controls/column/column.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>vendor/main/Controls/desktop/desktop.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>vendor/main/Controls/dock/dock.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>vendor/main/Controls/dockhtml/dockhtml.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>vendor/main/Controls/form/form.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>vendor/main/Controls/imagebutton/imagebutton.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>vendor/main/Controls/list/list.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>vendor/main/Controls/menu/menu.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>vendor/main/Controls/pager/pager.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>vendor/main/Controls/panel/panel.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>vendor/main/Controls/selectlist/selectlist.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>vendor/main/Controls/spinner/spinner.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>vendor/main/Controls/stepper/stepper.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>vendor/main/Controls/tabs/tabs.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>vendor/main/Controls/taskbar/taskbar.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>vendor/main/Controls/textarea/textarea.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>vendor/main/Controls/textbox/textbox.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>vendor/main/Controls/themechange/themechange.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>vendor/main/Controls/toolbar/toolbar.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>vendor/main/Controls/tree/tree.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>vendor/main/Controls/window/window.js"></script>
+
+<script>
+    var Demo = (Demo || {});
+    
+    Demo.initializeDesktop = function(){
+        MUI.create({
+            'control':'MUI.Desktop',
+            'id':'desktop',
+            'content':[
+                {name:'header',url:'system/init/titleBar'},
+			{name:'nav',control:'MUI.Dock',cssClass:'mui-desktopNav',docked:[
+                            {name: 'menu', position: 'header', control: 'MUI.Menu',
+                                items:[
+                                    {text:'File',items:[
+                                            {text:'Open',items:[]},
+                                            {text:'Tests',items:[
+                                                    {text:'Window Events',id:'windoweventsLinkCheck', registered:'Demo.eventsWindow' },
+                                                    {text:'Iframe Tests',id:'iframetestsLinkCheck', registered:'Demo.iframeTestsWindow' },
+                                                    {text:'Form Tests',id:'formtestsLinkCheck', registered:'Demo.formTestsWindow' },
+                                                    {text:'No Canvas Body',id:'noCanvasLinkCheck', registered:'Demo.noCanvasWindow' },
+                                                    {text:'CSS3 Body',id:'CSS3LinkCheck', registered:'Demo.css3Window' },
+                                                    {text:'CSS3 Canvas Fallback',id:'CSS3fallbackLinkCheck', registered:'Demo.css3fallbackWindow' },
+                                                    {text:'Force Canvas',id:'forceCanvasLinkCheck', registered:'Demo.forceCanvasWindow' },
+                                                    {text:'Close Panel',id:'closePanelCheck',registered:'Demo.closePanelTest' },
+                                                    {text:'Close Column',id:'closeColumnCheck',registered:'Demo.closeColumnTest' }
+                                            ]},
+                                            {type:'divider'},
+                                            {text:'Starters',items:[
+                                                    {text:'Virtual Desktop',url:'{demo}demo-virtual-desktop.html',target:"_blank"},
+                                                    {text:'Fixed Width',url:'{demo}demo-fixed-width.html',target:"_blank"},
+                                                    {text:'Fixed Width 2',url:'{demo}demo-taskbar-only.html',target:"_blank"},
+                                                    {text:'Fixed No Desktop',url:'{demo}demo-fixed-no-desktop.html',target:"_blank"},
+                                                    {text:'No Desktop',url:'{demo}demo-no-desktop.html',target:"_blank"},
+                                                    {text:'Modal Only',url:'{demo}demo-modal-only.html',target:"_blank"}
+                                            ]}
+                                    ]},
+                                    {text:'View',items:[
+                                            {text:'Cascade Windows',id:'cascadeLink',registered:'MUI.Windows.arrangeCascade'},
+                                            {text:'Tile Windows',id:'tileLink',registered:'MUI.Windows.arrangeTile'},
+                                            {type:'divider'},
+                                            {text:'Minimize All Windows',id:'minimizeLink',registered:'MUI.Windows.minimizeAll'},
+                                            {text:'Close All Windows',id:'closeLink',registered:'MUI.Windows.closeAll'}
+                                    ]},
+                                    {text:'Tools',items:[
+                                            {text:'Window Builder',id:'builderLinkCheck',registered:'Demo.builderWindow'},
+                                            {type:'divider'},
+                                            {text:'Options',items:[
+                                                    {text:'Standard Effects',id:'minimizeLink',type:'radio',group:'effects',selected:true,registered:'Demo.toggleStandardEffects'},
+                                                    {text:'Advanced Effects',id:'closeLink',type:'radio',group:'effects',registered:'Demo.toggleAdvancedEffects'}
+                                            ]}
+                                    ]},
+                                    {text:'Workspace',items:[
+                                            {text:'Save Workspace',id:'saveWorkspaceLink',registered:'Demo.saveWorkspace'},
+                                            {text:'Load Workspace',id:'loadWorkspaceLink',registered:'Demo.loadWorkspace'}
+                                    ]},
+                                    {text:'Help',items:[
+                                            {text:'Features',id:'featuresLinkCheck',url:'{demo}pages/features.html',registered:'Demo.featuresWindow'},
+                                            {type:'divider'},
+                                            {text:'Documentation',id:'loadWorkspaceLink',target:'_blank',url:'http://mochaui.org/doc/'},
+                                            {type:'divider'},
+                                            {text:'About',id:'aboutLink',url:'{demo}pages/about.html',registered:'Demo.aboutWindow'}
+                                    ]}
+                            ]},
+                            {control:'MUI.Spinner',divider:false},
+                            {control:'MUI.ThemeChange',divider:false}
+                        ]},
+                        {name:'taskbar'},
+			{name:'content',columns:[
+                            {id: 'sideColumn1', placement: 'left', width: 205, resizeLimit: [100, 300],
+                                panels:[
+                                   {
+                                        id: 'files-panel',
+                                        title: 'Examples',
+                                        content: {
+                                            padding: 8,
+                                            control: 'MUI.Tree',
+                                            container: 'files-panel',
+                                            partner: 'mainPanel',
+                                            content: {url: 'system/init/dataTree', recordsField: false},
+                                            idField: 'value',
+                                            depth: 3
+                                        }
+                                    },  
+                                    {
+                                        id: 'panel2',
+                                        title: 'Ajax Form',
+                                        height: 230,
+                                        isCollapsed: true,
+                                        content: {
+                                            url: 'system/init/ajaxForm',
+                                            onLoaded: function(){
+                                                    $('myForm').addEvent('submit', function(e){
+                                                            e.stop();
+
+                                                            MUI.showSpinner();
+                                                            if ($('postContent') && MUI.options.standardEffects){
+                                                                    $('postContent').setStyle('opacity', 0);
+                                                            } else {
+                                                                    $('mainPanel_pad').empty();
+                                                            }
+
+                                                            this.set('send', {
+                                                                    onComplete: function(response){
+                                                                            MUI.Content.update({
+                                                                                    element: 'mainPanel',
+                                                                                    content: response,
+                                                                                    title: 'Ajax Response',
+                                                                                    padding: {top: 8, right: 8, bottom: 8, left: 8}
+                                                                            });
+                                                                    },
+                                                                    onSuccess: function(){
+                                                                            if (MUI.options.standardEffects){
+                                                                                    $('postContent').setStyle('opacity', 0).get('morph').start({'opacity': 1});
+                                                                            }
+                                                                    }
+                                                            });
+                                                            this.send();
+                                                    });
+                                            }
+                                        }
+                                }
+                            ]},
+                            {id: 'mainColumn',	placement: 'main', resizeLimit: [100, 300],
+                                panels:[
+                                    {
+                                        id: 'mainPanel',
+                                        title: 'Lorem Ipsum',
+                                        content: [
+                                                {url: 'system/init/lipSum'},
+                                                {
+                                                        name: 'search',
+                                                        position: 'header',
+                                                        url: 'system/init/toolBarSearch',
+                                                        onLoaded: function(){
+                                                                if ($('demoSearch')){
+                                                                        $('demoSearch').addEvent('submit', function(e){
+                                                                                e.stop();
+                                                                                MUI.showSpinner();
+                                                                                if ($('postContent') && MUI.options.standardEffects) $('postContent').setStyle('opacity', 0);
+                                                                                else $('mainPanel_pad').empty();
+
+                                                                                var form = $('demoSearch');
+                                                                                form.set('send', {
+                                                                                        onComplete: function(response){
+                                                                                                MUI.Content.update({
+                                                                                                        'element': 'mainPanel',
+                                                                                                        'content': response,
+                                                                                                        'title': 'Ajax Response',
+                                                                                                        'padding': {top: 8, right: 8, bottom: 8, left: 8}
+                                                                                                });
+                                                                                        },
+                                                                                        onSuccess: function(){
+                                                                                                if ($('postContent') && MUI.options.standardEffects)
+                                                                                                        $('postContent').setStyle('opacity', 0).get('morph').start({'opacity': 1});
+                                                                                        }
+                                                                                });
+                                                                                form.send();
+                                                                        });
+                                                                }
+                                                                Demo.addResizeElements.apply(MUI.get('mainPanel'));
+                                                        }
+                                                }
+                                        ],
+                                        onResize: Demo.updateResizeElements
+                                    },
+                                    {
+                                        id: 'mochaConsole',
+                                        cssClass: 'mochaConsole',
+                                        title: 'Console',
+                                        height: 200,
+                                        content: [
+                                                {url: 'system/init/blank'},
+                                                {name: 'buttons1', position: 'header', control: 'MUI.Toolbar', buttons: [
+                                                        {id: 'button1', type: 'image', text: 'Button 1', title: 'Click to do something 1', image: '{fff}accept.png'},
+                                                        {id: 'button2', type: 'image', text: 'Button 2', title: 'Click to do something 2'}
+                                                ],
+                                                        onClick: function(){
+                                                                MUI.notification('Do Something');
+                                                                return true;
+                                                        }
+                                                },
+                                                {name: 'buttons2', position: 'header', control: 'MUI.Toolbar', buttons: [
+                                                        {id: 'button3', type: 'html', text: 'Button 3', title: 'Click to do something 3'},
+                                                        {id: 'go', cssClass: 'icon_application_go', title: 'Go'},
+                                                        {id: 'get', cssClass: 'icon_application_get'},
+                                                        {id: 'home', cssClass: 'icon_application_home', onClick: function(){
+                                                                MUI.notification('Do Something Else');
+                                                        }
+                                                        }
+                                                ],
+                                                        onClick:function(){
+                                                                MUI.notification('Do Something');
+                                                                return true;
+                                                        }
+                                                }
+                                        ]
+                                }
+                            ]},
+                            {id: 'sideColumn2',	placement: 'right', width: 220, resizeLimit: [200, 300],
+                                panels:[
+                                    {
+                                        id: 'help-panel',
+                                        content: [
+                                                {
+                                                        position: 'header',
+                                                        loadMethod: 'json',
+                                                        control: 'MUI.Tabs',
+                                                        value:'Overview',
+                                                        tabs: [
+                                                                {'text': 'Overview', 'value': 'Overview', 'url': 'system/init/overView', 'title': 'Overview'},
+                                                                {'text': 'Download', 'value': 'Download', 'url': 'system/init/download', 'title': 'Download'}
+                                                        ]
+                                                }
+                                        ]
+                                    },
+                                    {
+                                        id: 'panel3',
+                                        title: 'Collapsed Panel',
+                                        isCollapsed: true,
+                                        content: {
+                                                url: 'system/init/lipSum',
+//                                                onLoaded: Demo.addResizeElements
+                                        },
+//                                        height: 120,
+//                                        onResize: Demo.updateResizeElements,
+//                                        onCollapse: function(){
+//                                                MUI.Content.update({element: 'panel3', title: 'Collapsed Panel'});
+//                                        },
+//                                        onExpand: function(){
+//                                                MUI.Content.update({element: 'panel3', title: 'Expanded Panel'});
+//                                        }
+                                    },
+                                    {
+                                        id: 'tips-panel',
+                                        title: 'Tips',
+                                        height: 140,
+                                        footer:true,
+                                        content: [
+                                                {url: 'system/init/tips'},
+                                                {name: 'buttons', position: 'footer', control: 'MUI.Toolbar', buttons: [
+                                                        {id: 'page0', image:'public/img/icons/16x16/page_green.gif'},
+                                                        {id: 'page1', image:'public/img/icons/16x16/page_red.gif'},
+                                                        {id: 'page2', image:'public/img/icons/16x16/page.gif'}
+                                                ],
+                                                        onClick:function(){
+                                                                MUI.notification('Do Something');
+                                                                return true;
+                                                        }
+                                                }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]}
+                    
+            ]
+        });
+    };
+
+    Demo.initialize = function () {
+
+        new MUI.Require({
+            //js: ['scripts/demo-shared.js'],
+            noCache: true,
+            'onload': function () {
+                // Initialize MochaUI options
+                MUI.initialize({path: {demo: ''}});
+                MUI.load(['Parametrics', 'famfamfam', 'CoolClock']);
+                MUI.register('Demo', Demo);
+                MUI.register('MUI.Windows', MUI.Windows);
+                Demo.initializeDesktop();
+            }
+        });
+    };
+    
+    //inicializa MochaUI cuando el DOOM esta cargado
+    window.addEvent('load', Demo.initialize); 
+</script>
 </html>
