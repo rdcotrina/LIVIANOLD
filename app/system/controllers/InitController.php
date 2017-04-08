@@ -49,6 +49,14 @@ class InitController extends \System\Models\InitModel {
             },
             {
                 "value": "xhrLink",
+                "text": "Ventana",
+                "isChecked": false,
+                "isSelected": false,
+                "image": "_doc",
+                "registered": "Demo.ventana"
+            },
+            {
+                "value": "xhrLink",
                 "text": "XHR: Lorem Ipsum",
                 "isChecked": false,
                 "isSelected": false,
@@ -388,6 +396,10 @@ class InitController extends \System\Models\InitModel {
 	<li>Ctrl-Alt-Q toggles window visibility.</li>
 	<li>F11 toggles full screen mode.</li>
 </ul>';
+    }
+    
+    public function notes() {
+        Obj()->Vendor->View->render();
     }
     
 }
