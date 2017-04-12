@@ -18,10 +18,10 @@ class InitController extends \System\Models\InitModel {
 
     public function index() {
 
-        if (!Obj()->Vendor->Session->get('sys_isLogin')) {
+        if (Obj()->Vendor->Session->get('sys_isLogin')) {
             Obj()->Vendor->View->render('index', false);
         } else {
-            echo 555;
+            Obj()->Vendor->View->render('login', false);
         }
     }
 
