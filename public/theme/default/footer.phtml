@@ -38,4 +38,20 @@
 <?php endif; ?>
 
 
+<script>
+    /*obtener el src de los js incluidos, para verificar que no sean suplantados*/
+    /*
+     $.each($('script'),function(){
+     alert($(this).attr('src'))
+     });
+     */
+    Exe.require("<?php echo BASE_URL; ?>vendor/main/Tools");
+    Exe.require("<?php echo BASE_URL; ?>config/lang/js/lang_<?php echo APP_LANG?>");
+    Exe.require("<?php echo BASE_URL; ?>libs/Aes/js/aes",function(){
+        Exe.require("<?php echo BASE_URL; ?>libs/Aes/js/aesctr");
+    });    
+    Exe.require("<?php echo BASE_URL; ?>libs/Aes/js/base64");
+    Exe.require("<?php echo BASE_URL; ?>libs/Aes/js/utf8");
+    
+</script>
 </html>
